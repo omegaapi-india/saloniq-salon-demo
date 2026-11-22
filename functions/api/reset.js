@@ -1,21 +1,18 @@
-import { APP, CONFIG, ROWS } from './seed.js';
-import { json, loadState } from './store.js';
+import { APP, ROWS } from './seed.js';
+import { contextFor, json, loadState } from './store.js';
 
-export async function onRequestPost({ env }) {
-  const db = env.DB;
+export async function onRequestPost(context) {
+  const ctx = await contextFor(context);
   const statements = [
-    db.prepare('DELETE FROM activity WHERE app = ?').bind(APP),
-    db.prepare('DELETE FROM records WHERE app = ?').bind(APP),
-    db.prepare('DELETE FROM config WHERE app = ?').bind(APP)
+    ctx.db.prepare('DELETE FROM activity WHERE app = ? AND workspace_id = ?').bind(APP, ctx.ws),
+    ctx.db.prepare('DELETE FROM records WHERE app = ? AND workspace_id = ?').bind(APP, ctx.ws),
+    ctx.db.prepare("INSERT INTO activity (app, workspace_id, text, kind) VALUES (?, ?, ?, 'reset')")
+      .bind(APP, ctx.ws, 'You reset this workspace to its original simulated data.')
   ];
-  for (const [key, value] of Object.entries(CONFIG)) {
-    statements.push(db.prepare('INSERT INTO config (app, key, value) VALUES (?, ?, ?)')
-      .bind(APP, key, JSON.stringify(value)));
-  }
   ROWS.forEach((cells, index) => {
-    statements.push(db.prepare('INSERT INTO records (app, position, cells) VALUES (?, ?, ?)')
-      .bind(APP, index + 1, JSON.stringify(cells)));
+    statements.push(ctx.db.prepare('INSERT INTO records (app, workspace_id, position, cells) VALUES (?, ?, ?, ?)')
+      .bind(APP, ctx.ws, index + 1, JSON.stringify(cells)));
   });
-  await db.batch(statements);
-  return json(await loadState(db));
+  await ctx.db.batch(statements);
+  return json(await loadState(ctx.db, ctx.ws), 200, context, ctx.ws);
 }

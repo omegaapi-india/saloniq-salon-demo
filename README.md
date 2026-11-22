@@ -21,6 +21,13 @@ Built by **Krishna Prakash Ojha (Leon)** at **OmegaAPI** · [omegaapi.com](https
 - A three-step workflow and four quick actions
 - An activity log stored in the demo database
 
+## Production features
+
+- Anonymous workspaces: an HttpOnly workspace cookie gives each browser its own simulated workspace. No sign-up, no email, no password.
+- Soft delete: rows are marked deleted with **Delete last row** and can be brought back with **Restore last deleted**.
+- Audit trail: every action, add, delete, restore, and workspace creation is recorded with a kind and timestamp.
+- Public read-only ops dashboard: `/admin.html` shows aggregate counts and recent audit events for simulated data only. No login and no credentials.
+
 ## Full-stack architecture
 
 - Frontend: static HTML/CSS/JS served by Cloudflare Pages.
@@ -31,7 +38,9 @@ Built by **Krishna Prakash Ojha (Leon)** at **OmegaAPI** · [omegaapi.com](https
   - `POST /api/action` — record a simulated quick action.
   - `POST /api/records` — add a server-generated sample row.
   - `DELETE /api/records?id=<id>` — remove a sample row.
-  - `POST /api/reset` — restore original simulated seed data.
+  - `POST /api/restore` — restore the last soft-deleted row.
+  - `POST /api/reset` — restore original simulated seed data in the current workspace.
+  - `GET /api/admin/overview` — public read-only ops summary.
 
 Apply the schema once before the first deploy:
 

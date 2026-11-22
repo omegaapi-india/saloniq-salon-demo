@@ -73,7 +73,7 @@ function renderLog() {
     return;
   }
   list.innerHTML = state.activity.map((item) => (
-    '<div class="log-item"><time>' + escapeHtml(item.time) + '</time>' + escapeHtml(item.text) + '</div>'
+    '<div class="log-item"><time>' + escapeHtml(item.time) + '</time><span class="log-kind">' + escapeHtml(item.kind) + '</span>' + escapeHtml(item.text) + '</div>'
   )).join('');
   byId('activity-status').textContent = 'Last action: ' + state.activity[0].text;
 }
@@ -84,15 +84,19 @@ function renderAll() {
   renderWorkflow();
   renderActions();
   renderLog();
-  setStatus('Backend: connected · ' + state.meta.app + ' · D1', false);
+  const remove = byId('delete-last');
+  if (remove) remove.disabled = !state.records.length;
+  const restore = byId('restore-last');
+  if (restore) restore.disabled = !state.deleted.length;
+  setStatus('Backend: connected · D1 · workspace ' + state.meta.workspace, false);
 }
 
-async function mutate(path, body) {
+async function mutate(path, body, method = 'POST') {
   if (busy) return;
   busy = true;
   setStatus('Saving to backend…', false);
   try {
-    const options = { method: 'POST' };
+    const options = { method };
     if (body !== undefined) {
       options.headers = { 'content-type': 'application/json' };
       options.body = JSON.stringify(body);
@@ -113,8 +117,17 @@ function bind() {
     mutate('/api/action', { action: Number(button.dataset.action) });
   });
   byId('add-sample').addEventListener('click', () => mutate('/api/records'));
+  byId('delete-last').addEventListener('click', () => {
+    const last = state.records.at(-1);
+    if (!last) return;
+    mutate('/api/records?id=' + last.id, undefined, 'DELETE');
+  });
+  byId('restore-last').addEventListener('click', () => {
+    if (!state.deleted.length) return;
+    mutate('/api/restore', { id: state.deleted[0].id });
+  });
   byId('reset-demo').addEventListener('click', () => {
-    if (!window.confirm('Reset this demo to its original simulated data?')) return;
+    if (!window.confirm('Reset this workspace to its original simulated data?')) return;
     mutate('/api/reset');
   });
 }

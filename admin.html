@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Krishna Prakash Ojha (Leon) — OmegaAPI">
+  <meta name="description" content="Public read-only operations view for the SalonIQ simulated demo.">
+  <meta name="theme-color" content="#070b14">
+  <title>SalonIQ Ops — OmegaAPI</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/admin.css">
+  <script type="module" src="/assets/admin.js"></script>
+</head>
+<body class="admin-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <span class="brand-mark">OP</span>
+      <span class="brand-name">SalonIQ Ops<small>by OmegaAPI</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/">Back to demo</a>
+      <a href="https://github.com/omegaapi-india/saloniq-salon-demo">Source</a>
+    </nav>
+  </header>
+  <main>
+    <section class="section">
+      <span class="eyebrow">PUBLIC READ-ONLY OPS VIEW</span>
+      <h1>Operations snapshot.</h1>
+      <p class="muted" id="admin-status">Connecting to backend…</p>
+      <p class="muted">This dashboard shows counts and audit events for invented demo records only. No real customer, patient, student, or tenant data exists here.</p>
+    </section>
+    <section class="section"><div id="admin-cards" class="admin-cards"></div></section>
+    <section class="section">
+      <h2>Workspace summary</h2>
+      <div class="admin-panel" id="admin-workspaces"></div>
+    </section>
+    <section class="section">
+      <h2>Recent audit trail</h2>
+      <div class="admin-panel" id="admin-activity"></div>
+    </section>
+  </main>
+  <footer>© 2026 Krishna Prakash Ojha (Leon) · OmegaAPI · simulated demo data only</footer>
+</body>
+</html>

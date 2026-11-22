@@ -77,3 +77,35 @@ test('frontend reads and writes through the API', () => {
   assert.match(markup, /id="backend-status"/);
   assert.doesNotMatch(markup, /stored in this browser only/i);
 });
+
+test('workspaces, soft delete and audit trail are wired', () => {
+  const sql = fs.readFileSync(new URL('migrations/0002_workspaces.sql', root), 'utf8');
+  assert.match(sql, /CREATE TABLE IF NOT EXISTS workspaces/);
+  assert.match(sql, /workspace_id/);
+  assert.match(sql, /deleted_at/);
+  assert.match(sql, /kind TEXT/);
+  assert.ok(fs.existsSync(new URL('functions/api/restore.js', root)));
+  assert.ok(fs.existsSync(new URL('functions/api/admin/overview.js', root)));
+  assert.ok(fs.existsSync(new URL('admin.html', root)));
+  assert.ok(fs.existsSync(new URL('assets/admin.js', root)));
+  const store = fs.readFileSync(new URL('functions/api/store.js', root), 'utf8');
+  assert.match(store, /omegaapi_ws/);
+  assert.match(store, /crypto.randomUUID/);
+  assert.match(store, /loadAdmin/);
+  const app = fs.readFileSync(new URL('assets/app.js', root), 'utf8');
+  assert.match(app, /delete-last/);
+  assert.match(app, /restore-last/);
+  assert.match(app, /\/api\/restore/);
+  const markup = fs.readFileSync(new URL('index.html', root), 'utf8');
+  assert.match(markup, /href="\/admin.html"/);
+  assert.match(markup, /id="delete-last"/);
+  assert.match(markup, /id="restore-last"/);
+});
+
+test('reset is scoped to the active workspace', () => {
+  const reset = fs.readFileSync(new URL('functions/api/reset.js', root), 'utf8');
+  assert.match(reset, /contextFor\(context\)/);
+  assert.match(reset, /workspace_id = \?/);
+  assert.match(reset, /loadState\(ctx\.db, ctx\.ws\)/);
+  assert.match(reset, /kind\) VALUES \(\?, \?, \?, 'reset'\)/);
+});

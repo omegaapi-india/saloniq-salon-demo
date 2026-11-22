@@ -1,0 +1,17 @@
+/* Ops dashboard — public read-only view of simulated data. */
+body.admin-page { background: #070b14; color: #e6edf5; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; }
+body.admin-page .site-header { border-bottom: 1px solid #1d2b3a; }
+body.admin-page .section { max-width: 1120px; margin: 0 auto; padding: 34px 22px; }
+body.admin-page h1 { font-size: 2rem; margin: 8px 0; }
+body.admin-page h2 { font-size: 1.15rem; margin: 0 0 14px; }
+body.admin-page .eyebrow { color: #4ade80; font-size: .72rem; letter-spacing: .16em; font-weight: 800; }
+body.admin-page .muted { color: #93a5b8; }
+body.admin-page .admin-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+body.admin-page .admin-card { padding: 18px; border: 1px solid #1d2b3a; border-radius: 16px; background: #0d1622; }
+body.admin-page .admin-card strong { display: block; font-size: 1.8rem; margin-top: 6px; }
+body.admin-page .admin-panel { padding: 18px; border: 1px solid #1d2b3a; border-radius: 16px; background: #0d1622; }
+body.admin-page .admin-row { display: grid; grid-template-columns: 110px 140px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid #162434; font-size: .86rem; }
+body.admin-page .admin-row:last-child { border-bottom: 0; }
+body.admin-page .tag { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #163528; color: #6ee7b7; font-size: .7rem; }
+body.admin-page footer { border-top: 1px solid #1d2b3a; text-align: center; padding: 20px; color: #70879e; font-size: .8rem; }
+@media (max-width: 640px) { body.admin-page .admin-row { grid-template-columns: 1fr; gap: 2px; } }

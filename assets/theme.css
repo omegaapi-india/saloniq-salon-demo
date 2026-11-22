@@ -53,3 +53,5 @@ body.theme-salon .workflow-card { border-top: 1px solid var(--accent); text-alig
 .backend-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
 .backend-controls .mini-note { margin: 0; }
 .backend-controls .mini-note.error { color: #fca5a5; border-color: rgba(248, 113, 113, .5); }
+
+.log-kind { display: inline-block; margin-right: 8px; color: var(--accent-2); font-size: .68rem; font-weight: 800; text-transform: uppercase; }
