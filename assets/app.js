@@ -48,7 +48,8 @@ function renderRecords() {
   byId('record-body').innerHTML = demo.rows.map((row) => (
     '<tr>' + row.map((cell, index) => {
       const className = index === row.length - 1 ? ' class="status-cell' + (/review|reorder|due|busy|break|maintenance/i.test(cell) ? ' review' : '') + '"' : '';
-      return '<td' + className + '>' + escapeHtml(cell) + '</td>';
+      const label = ' data-label="' + escapeHtml(demo.tableHead[index]) + '"';
+      return '<td' + label + className + '>' + escapeHtml(cell) + '</td>';
     }).join('') + '</tr>'
   )).join('');
 }

@@ -1,0 +1,50 @@
+/* SalonIQ — distinct theme layer. Local SVG art only. */
+body.theme-salon {
+  --accent: #fb7185;
+  --accent-2: #f9a8d4;
+  --accent-ink: #3b0a1d;
+  --accent-soft: #fb718526;
+  --theme-bg: #1a0d16;
+}
+body.theme-salon .eyebrow { color: var(--accent-2); }
+body.theme-salon h1 span { background: linear-gradient(135deg, var(--accent), var(--accent-2)); background-clip: text; color: transparent; }
+body.theme-salon .brand-mark,
+body.theme-salon .header-cta,
+body.theme-salon .button.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); border-color: transparent; }
+body.theme-salon .site-nav a:hover { color: var(--accent-2); }
+body.theme-salon .mini-tag { background: var(--accent-soft); color: var(--accent-2); }
+body.theme-salon .dot.green { background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+body.theme-salon .hero { background: radial-gradient(circle at 85% 20%, var(--accent-soft), transparent 34%), var(--theme-bg); }
+body.theme-salon .hero-card { background: linear-gradient(160deg, var(--theme-bg), #0b1120); }
+body.theme-salon .mini-note { background: var(--accent-soft); color: var(--accent-2); }
+body.theme-salon .section.soft { background: var(--accent-soft); }
+body.theme-salon .data-table .status-cell { color: var(--accent-2); }
+body.theme-salon .data-table .status-cell.review { color: #fbbf24; }
+body.theme-salon .workflow-card span { color: var(--accent-2); }
+body.theme-salon .log-item { border-left: 3px solid var(--accent); }
+body.theme-salon .hero-art,
+body.theme-salon .flow-banner img { display: block; width: 100%; height: auto; border-radius: 16px; }
+body.theme-salon .hero-art { margin: 16px 0 8px; }
+body.theme-salon .flow-banner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 18px; align-items: center; margin-top: 20px; padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: rgba(8, 13, 24, .55); }
+body.theme-salon .flow-banner p { margin: 0; color: #a9bbcd; font-size: .86rem; }
+body.theme-salon h1, body.theme-salon h2, body.theme-salon .brand-name { font-family: Georgia, "Times New Roman", serif; letter-spacing: 0; }
+body.theme-salon .hero-card { border-radius: 26px 26px 90px 26px; }
+@media (max-width: 780px) {
+  body.theme-salon .flow-banner { grid-template-columns: 1fr; }
+  body.theme-salon .hero-card { transform: none; }
+}
+
+
+/* LAYOUT: salon gallery */
+body.theme-salon .hero-art { border-radius: 50% 50% 22px 22px; }
+body.theme-salon .button { border-radius: 999px; }
+body.theme-salon .strip { border-radius: 30px; }
+body.theme-salon .strip div { text-align: center; }
+body.theme-salon .data-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+body.theme-salon .data-table, body.theme-salon .data-table tbody, body.theme-salon .data-table tr, body.theme-salon .data-table td { display: block; width: 100%; }
+body.theme-salon .data-table tbody { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+body.theme-salon .data-table tr { padding: 20px; border: 1px solid var(--line); border-radius: 24px; background: rgba(251, 113, 133, .06); text-align: center; }
+body.theme-salon .data-table td { border: 0; padding: 4px 0; }
+body.theme-salon .data-table td::before { content: attr(data-label) ': '; display: block; color: var(--muted); font-size: .66rem; font-weight: 800; text-transform: uppercase; }
+body.theme-salon .data-table td:first-child { font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; color: var(--accent2); }
+body.theme-salon .workflow-card { border-top: 1px solid var(--accent); text-align: center; }

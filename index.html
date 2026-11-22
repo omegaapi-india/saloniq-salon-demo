@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Krishna Prakash Ojha (Leon) — OmegaAPI">
   <meta name="description" content="Privacy-safe salon booking demo with simulated stylists, services, and chair status.">
-  <meta name="theme-color" content="#070b14">
+  <meta name="theme-color" content="#be185d">
   <title>SalonIQ — Privacy-safe salon booking demo with simulated stylists, services, and chair status. by OmegaAPI</title>
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="stylesheet" href="/assets/demo.css">
+  <link rel="stylesheet" href="/assets/theme.css">
   <script type="module" src="/assets/app.js"></script>
 </head>
-<body>
+<body class="theme-salon">
   <header class="site-header">
     <a class="brand" href="#top" aria-label="SalonIQ home">
       <span class="brand-mark">SaI</span>
       <span class="brand-name">SalonIQ<small>by OmegaAPI</small></span>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="#records">Records</a>
-      <a href="#workflow">Workflow</a>
-      <a href="#activity">Activity</a>
+      <a href="#records">Team</a>
+      <a href="#workflow">Booking</a>
+      <a href="#activity">Log</a>
       <a href="#support">Support</a>
     </nav>
     <a class="header-cta" href="#support">♥ Sponsor</a>
@@ -29,11 +30,11 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <span class="eyebrow">Free demo · Simulated data · No sign-up</span>
+        <span class="eyebrow">SALON DEMO · SAMPLE TEAM · NO CLIENT DETAILS</span>
         <h1>Salon bookings, <span>without the wait.</span></h1>
         <p class="lead">SalonIQ demonstrates a stylist board, service durations, and chair status using sample names. Appointments are local to your browser and never reach a real salon.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#records">Open records</a>
+          <a class="button primary" href="#records">Open team</a>
           <a class="button ghost" href="#workflow">See workflow</a>
         </div>
         <ul class="hero-points">
@@ -43,6 +44,7 @@
         </ul>
       </div>
       <div class="hero-card" aria-label="Demo snapshot">
+        <img class="hero-art" src="/assets/img/hero.svg" alt="SalonIQ themed illustration">
         <div class="mini-top">
           <span><i class="dot green"></i> demo snapshot</span>
           <span class="mini-tag">live rules</span>
@@ -59,8 +61,8 @@
     <section id="records" class="section">
       <div class="section-head">
         <div>
-          <span class="eyebrow">01 · Records</span>
-          <h2>Small dataset. Clear status.</h2>
+          <span class="eyebrow">01 · Team</span>
+          <h2>A graceful stylist board.</h2>
         </div>
         <p id="safety-note"></p>
       </div>
@@ -75,19 +77,23 @@
     <section id="workflow" class="section soft">
       <div class="section-head">
         <div>
-          <span class="eyebrow">02 · Workflow</span>
-          <h2>Three steps, no clutter.</h2>
+          <span class="eyebrow">02 · Booking</span>
+          <h2>From chair to finish.</h2>
         </div>
         <p>Each demo shows a simple operating flow. It is built to explain the idea, not to replace a production system.</p>
       </div>
       <div id="workflow-grid" class="workflow-grid"></div>
+      <div class="flow-banner">
+        <img src="/assets/img/flow.svg" alt="SalonIQ process illustration">
+        <p>A polished booking flow with sample stylists. No client contact details are requested.</p>
+      </div>
     </section>
 
     <section id="activity" class="section">
       <div class="section-head">
         <div>
-          <span class="eyebrow">03 · Activity</span>
-          <h2>Try a local action.</h2>
+          <span class="eyebrow">03 · Log</span>
+          <h2>Log a local salon action.</h2>
         </div>
         <p>Pick a row, then run an action. The log is stored in this browser only and can be cleared any time.</p>
       </div>

@@ -25,6 +25,8 @@ Built by **Krishna Prakash Ojha (Leon)** at **OmegaAPI** · [omegaapi.com](https
 
 Stylists and services are fictional. No customer contact details are requested.
 
+Original local SVG illustrations are included in this repository. No stock photos, real people, or external images are used.
+
 There is no sign-up, no database, no payment code, no API key, and no external data service. The signed three-day preview cookie is set by a Pages Function and contains only an expiry timestamp.
 
 ## Run locally
