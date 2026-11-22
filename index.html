@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Krishna Prakash Ojha (Leon) — OmegaAPI">
+  <meta name="description" content="Privacy-safe salon booking demo with simulated stylists, services, and chair status.">
+  <meta name="theme-color" content="#070b14">
+  <title>SalonIQ — Privacy-safe salon booking demo with simulated stylists, services, and chair status. by OmegaAPI</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/demo.css">
+  <script type="module" src="/assets/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="SalonIQ home">
+      <span class="brand-mark">SaI</span>
+      <span class="brand-name">SalonIQ<small>by OmegaAPI</small></span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#records">Records</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#activity">Activity</a>
+      <a href="#support">Support</a>
+    </nav>
+    <a class="header-cta" href="#support">♥ Sponsor</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Free demo · Simulated data · No sign-up</span>
+        <h1>Salon bookings, <span>without the wait.</span></h1>
+        <p class="lead">SalonIQ demonstrates a stylist board, service durations, and chair status using sample names. Appointments are local to your browser and never reach a real salon.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#records">Open records</a>
+          <a class="button ghost" href="#workflow">See workflow</a>
+        </div>
+        <ul class="hero-points">
+          <li>Simulated records only</li>
+          <li>Local browser demo</li>
+          <li>Free self-host on Cloudflare</li>
+        </ul>
+      </div>
+      <div class="hero-card" aria-label="Demo snapshot">
+        <div class="mini-top">
+          <span><i class="dot green"></i> demo snapshot</span>
+          <span class="mini-tag">live rules</span>
+        </div>
+        <div class="hero-stat" id="hero-stat"></div>
+        <div class="mini-bars" id="hero-bars"></div>
+        <div class="mini-note" id="hero-note"></div>
+        <div class="mini-foot"><span>✂️ No backend data</span><span>Nothing saved online ✓</span></div>
+      </div>
+    </section>
+
+    <section class="strip" id="strip" aria-label="Product highlights"></section>
+
+    <section id="records" class="section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">01 · Records</span>
+          <h2>Small dataset. Clear status.</h2>
+        </div>
+        <p id="safety-note"></p>
+      </div>
+      <div class="panel table-wrap">
+        <table class="data-table">
+          <thead id="record-head"></thead>
+          <tbody id="record-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="workflow" class="section soft">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">02 · Workflow</span>
+          <h2>Three steps, no clutter.</h2>
+        </div>
+        <p>Each demo shows a simple operating flow. It is built to explain the idea, not to replace a production system.</p>
+      </div>
+      <div id="workflow-grid" class="workflow-grid"></div>
+    </section>
+
+    <section id="activity" class="section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">03 · Activity</span>
+          <h2>Try a local action.</h2>
+        </div>
+        <p>Pick a row, then run an action. The log is stored in this browser only and can be cleared any time.</p>
+      </div>
+      <div class="activity-grid">
+        <div class="panel action-panel">
+          <h3>Quick actions</h3>
+          <div id="action-grid" class="action-grid"></div>
+          <button class="button small ghost" type="button" id="reset-demo">Reset demo log</button>
+        </div>
+        <div class="panel log-panel">
+          <div class="panel-head">
+            <h3>Local activity log</h3>
+            <span class="mini-tag" id="log-count">0</span>
+          </div>
+          <div id="log-list" class="log-list"></div>
+          <p class="fine-print" id="activity-status">No action has been recorded yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section soft">
+      <div class="about-grid">
+        <div>
+          <span class="eyebrow">About this demo</span>
+          <h2>Built to be forked, studied, and improved.</h2>
+          <p>SalonIQ is an open-source demo by Krishna Prakash Ojha (Leon) at OmegaAPI. It runs on Cloudflare Pages with a signed three-day preview lock, a strict content security policy, and no payment layer.</p>
+          <div class="about-links">
+            <a class="button sponsor" href="https://github.com/sponsors/omegaapi-india" target="_blank" rel="noreferrer">♥ Sponsor on GitHub</a>
+            <a class="button primary" href="https://github.com/omegaapi-india/saloniq-salon-demo" target="_blank" rel="noreferrer">View source</a>
+            <a class="button ghost" href="mailto:info@omegaapi.com">Email OmegaAPI</a>
+            <a class="button ghost" href="https://t.me/Omegaapiofficial" target="_blank" rel="noreferrer">Telegram</a>
+          </div>
+          <p class="sponsor-note">Goal: <strong>10 monthly sponsors</strong> · tiers from <strong>$5 to $250</strong>. <a href="https://github.com/sponsors/omegaapi-india?interval=monthly" target="_blank" rel="noreferrer">View tiers</a></p>
+        </div>
+        <aside class="panel about-card">
+          <h3>Support this project</h3>
+          <p>Sponsorship keeps the live demos online and funds more free builds. A star or a share helps too.</p>
+          <ul>
+            <li>Official GitHub Sponsors button</li>
+            <li>Monthly tiers from $5 to $250</li>
+            <li>Privacy-safe simulated data</li>
+            <li>No ads, trackers, or paid data services</li>
+          </ul>
+          <a class="button sponsor wide" href="https://github.com/sponsors/omegaapi-india" target="_blank" rel="noreferrer">Sponsor OmegaAPI</a>
+          <p class="fine-print">Contact is limited to info@omegaapi.com and the OmegaAPI Telegram channel.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Krishna Prakash Ojha (Leon) · OmegaAPI · omegaapi.com</span>
+      <span>SalonIQ demo · simulated records · local choices · no real customer data</span>
+    </div>
+  </footer>
+</body>
+</html>

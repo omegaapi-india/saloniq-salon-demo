@@ -1,0 +1,7 @@
+name = "saloniq"
+compatibility_date = "2026-11-22"
+pages_build_output_dir = "."
+
+# DEMO_TRIAL_SECRET is a secret, never a plain variable:
+#   wrangler pages secret put DEMO_TRIAL_SECRET --project-name saloniq
+# For local testing, copy .dev.vars.example to .dev.vars and edit it.
