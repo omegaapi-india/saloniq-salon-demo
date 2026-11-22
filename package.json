@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "wrangler pages dev . --port 8788",
     "test": "node --test tests/*.test.js",
-    "deploy": "wrangler pages deploy . --project-name saloniq --branch main"
+    "deploy": "wrangler pages deploy . --project-name saloniq --branch main",
+    "db:seed": "wrangler d1 execute omegaapi-demos --remote --file=migrations/0001_init.sql"
   },
   "devDependencies": {
     "wrangler": "4.166.0"

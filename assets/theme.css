@@ -48,3 +48,8 @@ body.theme-salon .data-table td { border: 0; padding: 4px 0; }
 body.theme-salon .data-table td::before { content: attr(data-label) ': '; display: block; color: var(--muted); font-size: .66rem; font-weight: 800; text-transform: uppercase; }
 body.theme-salon .data-table td:first-child { font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; color: var(--accent2); }
 body.theme-salon .workflow-card { border-top: 1px solid var(--accent); text-align: center; }
+
+/* BACKEND: full-stack status controls */
+.backend-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.backend-controls .mini-note { margin: 0; }
+.backend-controls .mini-note.error { color: #fca5a5; border-color: rgba(248, 113, 113, .5); }

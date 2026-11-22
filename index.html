@@ -71,6 +71,10 @@
           <thead id="record-head"></thead>
           <tbody id="record-body"></tbody>
         </table>
+        <div class="backend-controls">
+          <button class="button small ghost" id="add-sample" type="button">Add sample row</button>
+          <span class="mini-note" id="backend-status">Connecting to backend…</span>
+        </div>
       </div>
     </section>
 
@@ -93,19 +97,19 @@
       <div class="section-head">
         <div>
           <span class="eyebrow">03 · Log</span>
-          <h2>Log a local salon action.</h2>
+          <h2>Log a salon action.</h2>
         </div>
-        <p>Pick a row, then run an action. The log is stored in this browser only and can be cleared any time.</p>
+        <p>Pick an action and it is written to the demo database. No personal data is collected.</p>
       </div>
       <div class="activity-grid">
         <div class="panel action-panel">
           <h3>Quick actions</h3>
           <div id="action-grid" class="action-grid"></div>
-          <button class="button small ghost" type="button" id="reset-demo">Reset demo log</button>
+          <button class="button small ghost" type="button" id="reset-demo">Reset demo data</button>
         </div>
         <div class="panel log-panel">
           <div class="panel-head">
-            <h3>Local activity log</h3>
+            <h3>Activity log</h3>
             <span class="mini-tag" id="log-count">0</span>
           </div>
           <div id="log-list" class="log-list"></div>

@@ -5,3 +5,8 @@ pages_build_output_dir = "."
 # DEMO_TRIAL_SECRET is a secret, never a plain variable:
 #   wrangler pages secret put DEMO_TRIAL_SECRET --project-name saloniq
 # For local testing, copy .dev.vars.example to .dev.vars and edit it.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "omegaapi-demos"
+database_id = "8aad9427-dce3-499b-8298-fb9b8eff641e"

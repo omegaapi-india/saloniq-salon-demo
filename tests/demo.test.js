@@ -50,3 +50,30 @@ test('category layout is distinct', () => {
   assert.ok(css.includes('LAYOUT: salon'));
   assert.match(app, /data-label/);
 });
+
+test('backend API and D1 binding are wired', () => {
+  const apiDir = new URL('functions/api/', root);
+  for (const name of ['seed.js', 'store.js', 'state.js', 'action.js', 'records.js', 'reset.js']) {
+    assert.ok(fs.existsSync(new URL(name, apiDir)), name + ' is missing');
+  }
+  const sql = fs.readFileSync(new URL('migrations/0001_init.sql', root), 'utf8');
+  assert.match(sql, /CREATE TABLE IF NOT EXISTS config/);
+  assert.match(sql, /CREATE TABLE IF NOT EXISTS records/);
+  assert.match(sql, /CREATE TABLE IF NOT EXISTS activity/);
+  assert.ok(sql.includes("SalonIQ"));
+  const toml = fs.readFileSync(new URL('wrangler.toml', root), 'utf8');
+  assert.match(toml, /\[\[d1_databases\]\]/);
+  assert.match(toml, /binding = "DB"/);
+  assert.match(toml, /database_name = "omegaapi-demos"/);
+});
+
+test('frontend reads and writes through the API', () => {
+  const script = fs.readFileSync(new URL('assets/app.js', root), 'utf8');
+  const markup = fs.readFileSync(new URL('index.html', root), 'utf8');
+  assert.match(script, /api\('\/api\/state'\)/);
+  assert.match(script, /fetch\(path, options\)/);
+  assert.doesNotMatch(script, /localStorage/);
+  assert.match(markup, /id="add-sample"/);
+  assert.match(markup, /id="backend-status"/);
+  assert.doesNotMatch(markup, /stored in this browser only/i);
+});
